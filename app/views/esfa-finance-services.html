@@ -1,0 +1,109 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  ESFA Finance Services – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">
+            Add a service
+        </span>
+        <h1 class="govuk-heading-l">
+            Check existing services in ESFA Finance directorate
+        </h1>
+        <p class="govuk-body">
+            Before creating a new service check the list of existing services below to ensure there is no duplication. 
+        </p>
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Service ID</th>
+                <th scope="col" class="govuk-table__header">Service name</th>
+                <th scope="col" class="govuk-table__header">Group</th>
+                <th scope="col" class="govuk-table__header">Directorate</th>
+                <th scope="col" class="govuk-table__header">Audience</th>
+            </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">0001-SID</td>
+                <td class="govuk-table__cell"><a href="#">Academy Trust Handbook</a></td>
+                <td class="govuk-table__cell">ESFA</td>
+                <td class="govuk-table__cell">Finance and Provider Market Oversight</td>
+                <td class="govuk-table__cell">Academies</td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="#">0001-SID</a></td>
+                <td class="govuk-table__cell"><a href="#">Academy Trust Handbook</a></td>
+                <td class="govuk-table__cell">ESFA</td>
+                <td class="govuk-table__cell">Finance and Provider Market Oversight</td>
+                <td class="govuk-table__cell">Academies</td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="#">0001-SID</a></td>
+                <td class="govuk-table__cell"><a href="#">Academy Trust Handbook</a></td>
+                <td class="govuk-table__cell">ESFA</td>
+                <td class="govuk-table__cell">Finance and Provider Market Oversight</td>
+                <td class="govuk-table__cell">Academies</td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="#">0001-SID</a></td>
+                <td class="govuk-table__cell"><a href="#">Academy Trust Handbook</a></td>
+                <td class="govuk-table__cell">ESFA</td>
+                <td class="govuk-table__cell">Finance and Provider Market Oversight</td>
+                <td class="govuk-table__cell">Academies</td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="#">0001-SID</a></td>
+                <td class="govuk-table__cell"><a href="#">Academy Trust Handbook</a></td>
+                <td class="govuk-table__cell">ESFA</td>
+                <td class="govuk-table__cell">Finance and Provider Market Oversight</td>
+                <td class="govuk-table__cell">Academies</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <form class="form govuk-!-margin-top-9" action="/service-detail" method="post">
+
+            {{ govukCheckboxes({
+                name: "esfa-finance-tasks-check",
+                items: [
+                  {
+                    value: "checked",
+                    text: "I have checked the list of existing services"
+                  }
+                ]
+              }) }}
+            
+            <div class="govuk-button-group">
+            {{ govukButton({
+                text: "Continue to create service"
+            }) }}
+            
+            <a class="govuk-link" href="/home">Cancel service creation</a>
+            </div>
+
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -5,6 +5,27 @@
 
 // Add extra styles here
 
+.govuk-width-container {
+    max-width:1200px;
+}
+
 .inline-block {
     display: inline-block;
+}
+
+.tab-header {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.govuk-form-group {
+    margin-bottom:50px;
+}
+
+.app-filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

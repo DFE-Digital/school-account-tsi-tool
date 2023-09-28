@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Add a task - services – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">
+        Add a Task
+      </span>
+
+      <form class="form" action="/task-dfe-group-answer" method="post">
+          
+        {{ govukRadios({
+          name: "dfe-group",
+          fieldset: {
+            legend: {
+              text: "Which DfE Group does the task belong to?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Hint text"
+          },
+          items: [
+            {
+              value: "Education and Skills Funding Agency (ESFA)",
+              text: "Education and Skills Funding Agency (ESFA)"
+            },
+            {
+              value: "Families",
+              text: "Families"
+            },
+            {
+              value: "Operations & Infrastructure",
+              text: "Operations & Infrastructure"
+            },
+            {
+              value: "Regions",
+              text: "Regions"
+            },
+            {
+              value: "Schools",
+              text: "Schools"
+            },
+            {
+              value: "Skills",
+              text: "Skills"
+            },
+            {
+              value: "Strategy",
+              text: "Strategy"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        
+          <a class="govuk-link" href="/home">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

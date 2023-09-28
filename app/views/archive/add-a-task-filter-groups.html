@@ -1,0 +1,183 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Add a task - services – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">
+        Add a Task
+      </span>
+      <h1 class="govuk-heading-l">
+        Select which service the task is part of
+      </h1>
+      
+      <div class="app-filters">
+        <p class="govuk-body govuk-!-font-weight-bold">
+          Filters 
+        </p>
+
+        {{ govukSelect({
+          id: "select-group",
+          name: "select-directorate",
+          label: {
+            text: "Groups"
+          },
+          items: [
+            {
+              value: 1,
+              text: "All groups",
+              selected: true
+            },
+            {
+              value: 2,
+              text: "Education and Skills Agency (ESFA)"
+            },
+            {
+              value: 3,
+              text: "Families"
+            },
+            {
+              value: 4,
+              text: "Operations and Infrastructure"
+            },
+            {
+              value: 5,
+              text: "Regions"
+            },
+            {
+              value: 6,
+              text: "Schools"
+            },
+            {
+              value: 7,
+              text: "Skills"
+            },
+            {
+              value: 7,
+              text: "Strategy"
+            }
+          ]
+        }) }}
+
+        {{ govukSelect({
+          id: "select-directorate",
+          name: "select-directorate",
+          label: {
+            text: "Directorates"
+          },
+          items: [
+            {
+              value: 1,
+              text: "All directorates",
+              selected: true
+            },
+            {
+              value: 2,
+              text: "Education and Skills Agency (ESFA)"
+            },
+            {
+              value: 3,
+              text: "Families"
+            },
+            {
+              value: 4,
+              text: "Operations and Infrastructure"
+            },
+            {
+              value: 5,
+              text: "Regions"
+            },
+            {
+              value: 6,
+              text: "Schools"
+            },
+            {
+              value: 7,
+              text: "Skills"
+            },
+            {
+              value: 7,
+              text: "Strategy"
+            }
+          ]
+        }) }}
+      </div>
+
+      <form class="form" action="/dfe-group-answer" method="post">
+          
+        {{ govukRadios({
+          name: "dfe-group",
+          fieldset: {
+            legend: {
+              text: "Which DfE Group does the task belong to?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Hint text"
+          },
+          items: [
+            {
+              value: "Education and Skills Funding Agency (ESFA)",
+              text: "Education and Skills Funding Agency (ESFA)"
+            },
+            {
+              value: "Families",
+              text: "Families"
+            },
+            {
+              value: "Operations & Infrastructure",
+              text: "Operations & Infrastructure"
+            },
+            {
+              value: "Regions",
+              text: "Regions"
+            },
+            {
+              value: "Schools",
+              text: "Schools"
+            },
+            {
+              value: "Skills",
+              text: "Skills"
+            },
+            {
+              value: "Strategy",
+              text: "Strategy"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        
+          <a class="govuk-link" href="/home">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

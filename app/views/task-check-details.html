@@ -1,0 +1,292 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+    Add a task - Check details –
+    {{ serviceName }}
+    – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+    {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+    {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <span class="govuk-caption-l">
+                Add a task
+            </span>
+            <h1 class="govuk-heading-l">
+                Check the task details
+            </h1>
+
+            <form class="form" action="/add-task-confirmation" method="post">
+
+                {{ govukSummaryList({
+                rows: [
+                  {
+                    key: {
+                        text: "Group"
+                      },
+                    value: {
+                        text: data["dfe-group"]
+                      },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "group"
+                            }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Directorate"
+                    },
+                    value: {
+                        text: Finance
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "directorate"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                        text: "Service"
+                      },
+                    value: {
+                        text: data["task-esfa-finance-services"]
+                      },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "service"
+                            }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Task ID"
+                    },
+                    value: {
+                        text: "TI000024"
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "task ID"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Task name"
+                    },
+                    value: {
+                        text: data["taskName"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "task name"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Task description"
+                    },
+                    value: {
+                        text: data["taskDescription"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "task description"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Requirement level"
+                    },
+                    value: {
+                        text: data["taskRequirement"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "requirement level"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Primary task type"
+                    },
+                    value: {
+                        text: data["primaryTaskType"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "primary task type"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Secondary task type"
+                    },
+                    value: {
+                        text: data["secondaryTaskType"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "secondary task type"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Transactional?"
+                    },
+                    value: {
+                        text: data["taskTransactional"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "transaction type"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Date"
+                    },
+                    value: {
+                        text: data["taskDate"] 
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "date"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Date type"
+                    },
+                    value: {
+                        text: data["taskDateType"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "date type"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Task size"
+                    },
+                    value: {
+                        text: data["taskSize"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "task size"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Support level"
+                    },
+                    value: {
+                        text: data["taskSupport"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "support level"
+                          }
+                        ]
+                      }
+                  }
+                ]
+              }) }}
+
+              <div class="govuk-button-group govuk-!-margin-top-9">
+                  {{ govukButton({
+                    text: "Submit task"
+                  }) }}
+
+                  <a class="govuk-link" href="/home">Cancel</a>
+              </div>
+
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,193 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Add a task - ESFA Services – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">
+        Add a task
+      </span>
+      <h1 class="govuk-heading-l">
+        Which ESFA service does the task belong to?
+    </h1>
+
+      <form class="form" action="/task-esfa-services-answer" method="post">
+
+          
+        {{ govukRadios({
+          name: "task-esfa-nonSpecific-services",
+          fieldset: {
+            legend: {
+              text: "Non-directorate specific services",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+                value: "Academies Accounts Direction",
+                text: "Academies Accounts Direction"
+            },
+            {
+                value: "Academies accounts return",
+                text: "Academies accounts return"
+            },
+            {
+                value: "Academies Chart of Accounts",
+                text: "Academies Chart of Accounts"
+            },
+            {
+                value: "Academies sector annual reports and accounts",
+                text: "Academies sector annual reports and accounts"
+            }
+          ]
+        }) }}
+
+        {{ govukRadios({
+            name: "task-esfa-finance-services",
+            fieldset: {
+              legend: {
+                text: "Finance services",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                  value: "Academies Accounts Direction",
+                  text: "Academies Accounts Direction"
+              },
+              {
+                  value: "Academies accounts return",
+                  text: "Academies accounts return"
+              },
+              {
+                  value: "Academies Chart of Accounts",
+                  text: "Academies Chart of Accounts"
+              },
+              {
+                  value: "Academies sector annual reports and accounts",
+                  text: "Academies sector annual reports and accounts"
+              }
+            ]
+          }) }}
+
+          {{ govukRadios({
+            name: "task-esfa-fpmo-services",
+            fieldset: {
+              legend: {
+                text: "Finance and Provider Market Oversight services",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                  value: "Academies Accounts Direction",
+                  text: "Academies Accounts Direction"
+              },
+              {
+                  value: "Academies accounts return",
+                  text: "Academies accounts return"
+              },
+              {
+                  value: "Academies Chart of Accounts",
+                  text: "Academies Chart of Accounts"
+              },
+              {
+                  value: "Academies sector annual reports and accounts",
+                  text: "Academies sector annual reports and accounts"
+              }
+            ]
+          }) }}
+  
+          {{ govukRadios({
+              name: "task-esfa-funding-services",
+              fieldset: {
+                legend: {
+                  text: "Funding services",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              items: [
+                {
+                    value: "Academies Accounts Direction",
+                    text: "Academies Accounts Direction"
+                },
+                {
+                    value: "Academies accounts return",
+                    text: "Academies accounts return"
+                },
+                {
+                    value: "Academies Chart of Accounts",
+                    text: "Academies Chart of Accounts"
+                },
+                {
+                    value: "Academies sector annual reports and accounts",
+                    text: "Academies sector annual reports and accounts"
+                }
+              ]
+            }) }}
+
+            {{ govukRadios({
+              name: "task-esfa-sfso-services",
+              fieldset: {
+                legend: {
+                  text: "Schools Financial Support and Oversight services",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              items: [
+                {
+                    value: "Academies Accounts Direction",
+                    text: "Academies Accounts Direction"
+                },
+                {
+                    value: "Academies accounts return",
+                    text: "Academies accounts return"
+                },
+                {
+                    value: "Academies Chart of Accounts",
+                    text: "Academies Chart of Accounts"
+                },
+                {
+                    value: "Academies sector annual reports and accounts",
+                    text: "Academies sector annual reports and accounts"
+                }
+              ]
+            }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        
+          <a class="govuk-link" href="/home">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

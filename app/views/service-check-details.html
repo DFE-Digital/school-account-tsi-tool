@@ -1,0 +1,224 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+    Question page template –
+    {{ serviceName }}
+    – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+    {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+    {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <span class="govuk-caption-l">
+                Add a service
+            </span>
+            <h1 class="govuk-heading-l">
+                Check the service details
+            </h1>
+
+            <form class="form" action="/add-service-confirmation" method="post">
+
+                {{ govukSummaryList({
+                rows: [
+                  {
+                    key: {
+                        text: "Group"
+                    },
+                    value: {
+                        text: data["dfe-group"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "name"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Directorate"
+                    },
+                    value: {
+                        text: data["esfa-directorate"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "directorate"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Service ID"
+                    },
+                    value: {
+                        text: "0023-SID"
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "service ID"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Service name"
+                    },
+                    value: {
+                        text: data["serviceName"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "service name"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Service acronym"
+                    },
+                    value: {
+                        text: data["serviceAcronym"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "service acronym"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Service description"
+                    },
+                    value: {
+                        text: data["serviceDescription"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "service description"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Link to service"
+                    },
+                    value: {
+                        text: data["serviceLink"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "link to service"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Current status"
+                    },
+                    value: {
+                        text: data["serviceStatus"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "service status"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Service audience"
+                    },
+                    value: {
+                        text: data["serviceAudience"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "service audience"
+                          }
+                        ]
+                      }
+                  },
+                  {
+                    key: {
+                      text: "Contact email"
+                    },
+                    value: {
+                        text: data["serviceEmail"]
+                    },
+                    actions: {
+                        items: [
+                          {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "contact email for service"
+                          }
+                        ]
+                      }
+                  }
+                ]
+              }) }}
+
+              <div class="govuk-button-group govuk-!-margin-top-9">
+                  {{ govukButton({
+                    text: "Submit service"
+                  }) }}
+
+                  <a class="govuk-link" href="/home">Cancel</a>
+              </div>
+
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

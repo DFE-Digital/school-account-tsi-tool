@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  ESFA Directorates – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">
+        Add a service
+      </span>
+
+      <form class="form" action="/esfa-directorate-answer" method="post">
+          
+        {{ govukRadios({
+          name: "esfa-directorate",
+          fieldset: {
+            legend: {
+              text: "Which ESFA directorate does the service belong to?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Hint text"
+          },
+          items: [
+            {
+              value: "Not directorate specific",
+              text: "Not directorate specific"
+            },
+            {
+              value: "Finance",
+              text: "Finance"
+            },
+            {
+              value: "Finance and Provider Market Oversight",
+              text: "Finance and Provider Market Oversight"
+            },
+            {
+              value: "Funding",
+              text: "Funding"
+            },
+            {
+              value: "Schools Financial Support and Oversight",
+              text: "Schools Financial Support and Oversight"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        
+          <a class="govuk-link" href="/home">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

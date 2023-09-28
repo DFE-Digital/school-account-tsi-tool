@@ -1,0 +1,365 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+    Add a task - Detail –
+    {{ serviceName }}
+    – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+    {{ govukPhaseBanner({
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+    {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">
+            Add a task
+        </span>
+        <h1 class="govuk-heading-l">
+            New task details
+        </h1>
+
+        <form class="form" action="/task-check-details" method="post">
+
+            {{ govukSummaryList({
+            rows: [
+                {
+                    key: {
+                        text: "Group"
+                    },
+                    value: {
+                        text: data["dfe-group"]
+                    }
+                },
+                {
+                    key: {
+                        text: "Directorate"
+                    },
+                    value: {
+                        text: "Finance"
+                    }
+                },
+                {
+                    key: {
+                        text: "Service"
+                    },
+                    value: {
+                        text: data["task-esfa-finance-services"]
+                    }
+                },
+                {
+                    key: {
+                        text: "Task ID"
+                    },
+                    value: {
+                        text: "TI000024"
+                    }
+                }
+            ]
+            }) }}
+
+            <!-- QUESTIONS -->
+            <div class="govuk-!-margin-top-9">
+                {{ govukInput({
+                    label: {
+                    text: "What is the name of the task?",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                    },
+                    hint: {
+                    text: "Hint text"
+                    },
+                    id: "task-name",
+                    name: "taskName"
+                }) }}
+
+                {{ govukTextarea({
+                    label: {
+                    text: "Give a short description of the task",
+                    classes: "govuk-label--s",
+                    isPageHeading: false
+                    },
+                    hint: {
+                    text: "Hint text"
+                    },
+                    id: "task-description",
+                    name: "taskDescription"
+                }) }}
+
+                {{ govukRadios({
+                    name: "taskRequirement",
+                    fieldset: {
+                        legend: {
+                        text: "What level of requirement does this task have?",
+                        isPageHeading: false,
+                        classes: "govuk-fieldset__legend--s"
+                        }
+                    },
+                    hint: {
+                        text: "Hint text"
+                        },
+                    items: [
+                        {
+                        value: "Mandatory",
+                        text: "Mandatory"
+                        },
+                        {
+                        value: "Optional",
+                        text: "Optional"
+                        },
+                        {
+                        value: "Conditional",
+                        text: "Conditional"
+                        }
+                    ]
+                }) }}
+
+                {{ govukRadios({
+                    name: "primaryTaskType",
+                    fieldset: {
+                        legend: {
+                            text: "What is the primary task type?",
+                            isPageHeading: false,
+                            classes: "govuk-fieldset__legend--s"
+                            }
+                        },
+                        hint: {
+                            text: "Hint text"
+                        },
+                        items: [
+                            {
+                            value: "Buildings and Infrastructure",
+                            text: "Buildings and Infrastructure"
+                            },
+                            {
+                            value: "Compliance",
+                            text: "Compliance"
+                            },
+                            {
+                            value: "Finance",
+                            text: "Finance"
+                            },
+                            {
+                            value: "Governance",
+                            text: "Governance"
+                            },
+                            {
+                            value: "HR",
+                            text: "HR"
+                            },
+                            {
+                            value: "Marketing",
+                            text: "Marketing"
+                            },
+                            {
+                            value: "Procurement",
+                            text: "Procurement"
+                            }
+                        ]
+                }) }}
+
+                {{ govukRadios({
+                    name: "secondaryTaskType",
+                    fieldset: {
+                        legend: {
+                        text: "Does the task have a secondary type?",
+                        isPageHeading: false,
+                        classes: "govuk-fieldset__legend--s"
+                        }
+                    },
+                    hint: {
+                        text: "Hint text"
+                        },
+                    items: [
+                        {
+                        value: "Buildings and Infrastructure",
+                        text: "Buildings and Infrastructure"
+                        },
+                        {
+                        value: "Compliance",
+                        text: "Compliance"
+                        },
+                        {
+                        value: "Finance",
+                        text: "Finance"
+                        },
+                        {
+                        value: "Governance",
+                        text: "Governance"
+                        },
+                        {
+                        value: "HR",
+                        text: "HR"
+                        },
+                        {
+                        value: "Marketing",
+                        text: "Marketing"
+                        },
+                        {
+                        value: "Procurement",
+                        text: "Procurement"
+                        }
+                    ]
+                }) }}
+
+                {{ govukRadios({
+                    name: "taskTransactional",
+                    fieldset: {
+                        legend: {
+                        text: "Is this task transactional?",
+                        isPageHeading: false,
+                        classes: "govuk-fieldset__legend--s"
+                        }
+                    },
+                    hint: {
+                        text: "Hint text"
+                        },
+                    items: [
+                        {
+                        value: "Yes",
+                        text: "Yes"
+                        },
+                        {
+                        value: "No",
+                        text: "No"
+                        }
+                    ]
+                }) }}
+
+                {{ govukDateInput({
+                    id: "taskDate",
+                    namePrefix: "taskDate",
+                    fieldset: {
+                        legend: {
+                        text: "What date is associated with the task?",
+                        isPageHeading: false,
+                        classes: "govuk-fieldset__legend--s"
+                        }
+                    },
+                    hint: {
+                        text: "For example, 27 3 2021"
+                    },
+                    items: [
+                        {
+                        name: "day",
+                        classes: "govuk-input--width-2",
+                        },
+                        {
+                        name: "month",
+                        classes: "govuk-input--width-2",
+                        },
+                        {
+                        name: "year",
+                        classes: "govuk-input--width-4",
+                        }
+                    ]
+                }) }}
+
+                {{ govukRadios({
+                    name: "taskDateType",
+                    fieldset: {
+                        legend: {
+                        text: "What is this date?",
+                        isPageHeading: false,
+                        classes: "govuk-fieldset__legend--s"
+                        }
+                    },
+                    hint: {
+                        text: "Hint text"
+                        },
+                    items: [
+                        {
+                        value: "Deadline",
+                        text: "Deadline"
+                        },
+                        {
+                        value: "Release date",
+                        text: "Release date"
+                        }
+                    ]
+                }) }}
+
+                {{ govukRadios({
+                    name: "taskSize",
+                    fieldset: {
+                        legend: {
+                        text: "What is the estimated size of the task?",
+                        isPageHeading: false,
+                        classes: "govuk-fieldset__legend--s"
+                        }
+                    },
+                    hint: {
+                        text: "Hint text"
+                        },
+                    items: [
+                        {
+                        value: "Small",
+                        text: "Small"
+                        },
+                        {
+                        value: "Medium",
+                        text: "Medium"
+                        },
+                        {
+                        value: "Large",
+                        text: "Large"
+                        }
+                    ]
+                }) }}
+
+                {{ govukRadios({
+                    name: "taskSupport",
+                    fieldset: {
+                        legend: {
+                        text: "What level of support is required?",
+                        isPageHeading: false,
+                        classes: "govuk-fieldset__legend--s"
+                        }
+                    },
+                    hint: {
+                        text: "Hint text"
+                        },
+                    items: [
+                        {
+                        value: "L1",
+                        text: "L1"
+                        },
+                        {
+                        value: "L2",
+                        text: "L2"
+                        },
+                        {
+                        value: "L3",
+                        text: "L3"
+                        }
+                    ]
+                }) }}
+
+
+            </div>
+
+            <div class="govuk-button-group govuk-!-margin-top-9">
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+                <a class="govuk-link" href="/home">Cancel</a>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

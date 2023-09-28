@@ -1,0 +1,153 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  TSI Home – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<!-- TABS -->
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#tasks">
+        Tasks
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#services">
+        Services
+      </a>
+    </li>
+  </ul>
+
+  <!-- TASKS -->
+  <div class="govuk-tabs__panel" id="tasks">
+    <div class="tab-header">
+      <h2 class="govuk-heading-l">All tasks</h2>
+      <a href="add-a-task-groups"><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Add a task
+      </button></a>
+    </div>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Task ID</th>
+          <th scope="col" class="govuk-table__header">Task name</th>
+          <th scope="col" class="govuk-table__header">Primary type</th>
+          <th scope="col" class="govuk-table__header">Date</th>
+          <th scope="col" class="govuk-table__header">Requirement</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">TI0001</td>
+          <td class="govuk-table__cell"><a href="#">Trust ensures  they are compliant with the Academy Trust Handbook</a></td>
+          <td class="govuk-table__cell">Finance</td>
+          <td class="govuk-table__cell">01/09/2023</td>
+          <td class="govuk-table__cell">Mandatory</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">TI0001</td>
+          <td class="govuk-table__cell"><a href="#">Trust ensures  they are compliant with the Academy Trust Handbook</a></td>
+          <td class="govuk-table__cell">Finance</td>
+          <td class="govuk-table__cell">01/09/2023</td>
+          <td class="govuk-table__cell">Mandatory</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">TI0001</td>
+          <td class="govuk-table__cell"><a href="#">Trust ensures  they are compliant with the Academy Trust Handbook</a></td>
+          <td class="govuk-table__cell">Finance</td>
+          <td class="govuk-table__cell">01/09/2023</td>
+          <td class="govuk-table__cell">Mandatory</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">TI0001</td>
+          <td class="govuk-table__cell"><a href="#">Trust ensures  they are compliant with the Academy Trust Handbook</a></td>
+          <td class="govuk-table__cell">Finance</td>
+          <td class="govuk-table__cell">01/09/2023</td>
+          <td class="govuk-table__cell">Mandatory</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">TI0001</td>
+          <td class="govuk-table__cell"><a href="#">Trust ensures  they are compliant with the Academy Trust Handbook</a></td>
+          <td class="govuk-table__cell">Finance</td>
+          <td class="govuk-table__cell">01/09/2023</td>
+          <td class="govuk-table__cell">Mandatory</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SERVICES -->
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="services">
+    <div class="tab-header">
+      <h2 class="govuk-heading-l">All services</h2>
+      <a href="add-a-service-groups"><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Add a service
+      </button></a>
+    </div>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Service ID</th>
+          <th scope="col" class="govuk-table__header">Service name</th>
+          <th scope="col" class="govuk-table__header">Group</th>
+          <th scope="col" class="govuk-table__header">Directorate</th>
+          <th scope="col" class="govuk-table__header">Audience</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">0001-SID</td>
+          <td class="govuk-table__cell"><a href="#">Academy Trust Handbook</a></td>
+          <td class="govuk-table__cell">ESFA</td>
+          <td class="govuk-table__cell">Finance and Provider Market Oversight</td>
+          <td class="govuk-table__cell">Academies</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">0001-SID</a></td>
+          <td class="govuk-table__cell"><a href="#">Academy Trust Handbook</a></td>
+          <td class="govuk-table__cell">ESFA</td>
+          <td class="govuk-table__cell">Finance and Provider Market Oversight</td>
+          <td class="govuk-table__cell">Academies</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">0001-SID</a></td>
+          <td class="govuk-table__cell"><a href="#">Academy Trust Handbook</a></td>
+          <td class="govuk-table__cell">ESFA</td>
+          <td class="govuk-table__cell">Finance and Provider Market Oversight</td>
+          <td class="govuk-table__cell">Academies</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">0001-SID</a></td>
+          <td class="govuk-table__cell"><a href="#">Academy Trust Handbook</a></td>
+          <td class="govuk-table__cell">ESFA</td>
+          <td class="govuk-table__cell">Finance and Provider Market Oversight</td>
+          <td class="govuk-table__cell">Academies</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">0001-SID</a></td>
+          <td class="govuk-table__cell"><a href="#">Academy Trust Handbook</a></td>
+          <td class="govuk-table__cell">ESFA</td>
+          <td class="govuk-table__cell">Finance and Provider Market Oversight</td>
+          <td class="govuk-table__cell">Academies</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
