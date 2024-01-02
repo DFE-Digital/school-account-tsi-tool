@@ -10,19 +10,24 @@
     "showNav": "true",
     "showSearch": "false",
     "showUserName": "true",
-    "showHeaderActionLinks": "true",
     "userName": "Sign out",
     "userNameURL": "#",
-    "selectedNav": pageNav,
     "logoPath": "public/images",
-    "homeHref": "/",
     "service": {
       "name": "Task and Service Index"
     },
     "primaryLinks": [
       {
-        "url"  : "",
-        "label" : ""
+        "url"  : "/home",
+        "label" : "Home"
+      },
+      {
+        "url"  : "#",
+        "label" : "Tasks"
+      },
+      {
+        "url"  : "#",
+        "label" : "Services"
       }
     ]
   })
@@ -35,3 +40,5 @@
   {{ super() }}
   <script src="/public/javascripts/dfefrontend.js"></script>
 {% endblock %}
+
+

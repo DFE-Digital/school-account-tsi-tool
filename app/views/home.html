@@ -1,18 +1,5 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-  TSI Home – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
-
-{% block beforeContent %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "Beta"
-  },
-  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
-}) }}
-{% endblock %}
-
 {% block content %}
 
 <!-- TABS -->
@@ -156,5 +143,14 @@
     </table>
   </div>
 </div>
+
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
 
 {% endblock %}
